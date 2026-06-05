@@ -171,29 +171,14 @@
    HEADERS / BARRA SUPERIOR
    ============================================================================ */
 
-.topo-sistema-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #002333;
-  padding: 12px 24px;
-  color: #ffffff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
 
 /* Logo e Texto na Esquerda */
-.topo-esquerda .topo-logo-link {
+.topo-logo-link {
   display: flex;
   align-items: center;
   gap: 12px;
   text-decoration: none;
   color: #ffffff;
-}
-
-.logo-sistema-img {
-  height: 40px;
-  width: auto;
-  object-fit: contain;
 }
 
 .topo-marca-texto h1 {
@@ -209,15 +194,9 @@
   display: block;
 }
 
-/* Menu no Centro */
-.topo-centro-menu {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  margin: 0 20px;
-}
 
-.topo-centro-menu .menu-navegacao {
+
+.menu-navegacao {
   display: flex;
   list-style: none;
   gap: 24px;
@@ -225,7 +204,7 @@
   padding: 0;
 }
 
-.topo-centro-menu .menu-navegacao a {
+.menu-navegacao a {
   color: #94a3b8;
   text-decoration: none;
   font-size: 0.95rem;
@@ -235,20 +214,14 @@
   border-bottom: 2px solid transparent;
 }
 
-.topo-centro-menu .menu-navegacao a:hover {
+.menu-navegacao a:hover {
   color: #ffffff;
 }
 
-.topo-centro-menu .menu-navegacao a.active {
+.menu-navegacao a.active {
   color: #38bdf8;
   border-bottom-color: #38bdf8;
   font-weight: 600;
-}
-
-/* Perfil na Direita */
-.topo-direita {
-  display: flex;
-  align-items: center;
 }
 
 .usuario-perfil-box {
@@ -296,38 +269,11 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
-.topo-busca-container {
-  display: flex;
-  align-items: center;
-  background-color: #f1f5f9;
-  padding: 8px 16px;
-  border-radius: 8px;
-  width: 300px;
-}
-
-.icone-busca {
-  font-size: 0.9rem;
-  margin-right: 8px;
-  color: #94a3b8;
-}
-
-.topo-busca-container input {
-  border: none;
-  background: transparent;
-  outline: none;
-  width: 100%;
-  font-size: 0.9rem;
-}
 
 .topo-usuario-container {
   display: flex;
   align-items: center;
   gap: 12px;
-}
-.notificacao-sininho {
-  font-size: 1.2rem;
-  color: #64748b;
-  cursor: pointer;
 }
 
 .usuario-info-topo {
@@ -1078,36 +1024,13 @@
   text-align: right;
 }
 
-.resumo-bullet {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 8px;
-}
-
-.resumo-total {
-  background: linear-gradient(
-    135deg,
-    #00334e,
-    #005f73
-  );
-  padding: 24px;
-  border-radius: 12px;
-  margin-bottom: 20px;
-}
-.resumo-total .total-valor {
+.total-valor {
   font-size: 3rem;
   font-weight: 900;
 }
 
-.resumo-total p {
-  margin: 0;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.8);
-}
 
-.resumo-total .total-valor {
+.total-valor {
   font-size: 2rem;
   font-weight: 900;
   color: #ffffff;
@@ -1156,37 +1079,8 @@
   font-size: 1rem;
 }
 
-/* Legenda do Gráfico */
-.grafico-legenda {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid #e2e8f0;
-}
-
-.legenda-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.9rem;
-  color: #475569;
-}
-
-.legenda-cor {
-  width: 12px;
-  height: 12px;
-  border-radius: 3px;
-}
 
 /* Indicadores Secundários */
-.relatorio-indicadores {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-}
 
 .indicador-relatorio {
   background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
@@ -1232,11 +1126,9 @@
   color: #003366;
 }
 
-.indicador-info-relatorio {
-  flex: 1;
-}
 
-.indicador-info-relatorio .label {
+
+.label {
   font-size: 0.8rem;
   color: #64748b;
   font-weight: 600;
@@ -1245,7 +1137,7 @@
   margin: 0;
 }
 
-.indicador-info-relatorio .valor {
+.valor {
   font-size: 1.8rem;
   font-weight: 900;
   color: #0f172a;
@@ -1411,8 +1303,6 @@
 .card-cliente,
 .card-indicador,
 .card-advogado,
-.card-processo,
-.card-tarefa,
 .grafico-container,
 .resumo-operacional {
   border-radius: 18px;
@@ -1431,4 +1321,128 @@
 .resumo-operacional:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 30px rgba(15, 23, 42, 0.12);
+}
+
+/* ==========================================================================
+   LAYOUT PRINCIPAL (Grid / Flexbox)
+   ========================================================================== */
+
+/* Garante que o app ocupe toda a altura da tela sem criar barras de rolagem desnecessárias */
+.layout-aplicacao {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f9fa; /* Fundo cinza bem claro para destacar os cards brancos */
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #333333;
+}
+
+/* Coluna da direita que agrupa o Topo, as Páginas e o Rodapé */
+.layout-conteudo-principal {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0; /* Evita que quebras de layout estourem o limite da tela */
+}
+
+/* Espaço central dinâmico onde as rotas/páginas são renderizadas */
+.conteudo-dinamico-paginas {
+  flex: 1; /* Força esta div a empurrar o rodapé sempre para o final da página */
+  padding: 30px;
+  overflow-y: auto;
+}
+
+/* ==========================================================================
+   ESTILIZAÇÃO DO COMPONENTE RODAPÉ
+   ========================================================================== */
+.rodape {
+  background-color: #ffffff;
+  border-top: 1px solid #e2e8f0; /* Linha sutil separando o conteúdo do rodapé */
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #718096; /* Tom de cinza mais suave para texto secundário */
+}
+
+.rodape p {
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   ESTILOS COMPLEMENTARES PARA OS MENUS (EMOJIS)
+   ========================================================================== */
+
+/* Ajuste básico para os itens do seu componente Navegacao.js usando emojis */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Espaçamento perfeito entre o emoji e o texto */
+  padding: 14px 20px;
+  color: #b2c0cc;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border-radius: 8px;
+}
+
+/* Efeito de hover e estado ativo na barra lateral */
+.menu-item:hover, 
+.menu-item.active {
+  color: #ffffff;
+  background-color: #0d2b45; /* Tom azul escuro/turquesa de destaque */
+}
+
+/* Ajuste fino no tamanho do emoji dentro do menu */
+.menu-item span {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* Estilização da tag <main className="principal"> de dentro do NotFound.js */
+main.principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+main.principal h2 {
+  font-size: 4rem;
+  color: #0d2b45; /* Tom azul escuro do IFjuridico */
+  margin-bottom: 10px;
+}
+
+main.principal p {
+  font-size: 1.2rem;
+  color: #4a5568;
+}
+
+main.principal a {
+  color: #0d2b45;
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 2px solid #0d2b45;
+  transition: color 0.2s;
+}
+
+main.principal a:hover {
+  color: #319795; /* Um tom turquesa sutil ao passar o mouse */
+  border-bottom-color: #319795;
+}
+
+/* Estilização para o círculo de preenchimento quando não houver foto */
+.avatar-padrao-fallback {
+  width: 70px;  /* Deixe com a mesma largura configurada para .cliente-foto-perfil */
+  height: 70px; /* Deixe com a mesma altura configurada para .cliente-foto-perfil */
+  background-color: #e2e8f0; /* Fundo cinza suave corporativo */
+  border-radius: 50%; /* Garante o formato perfeitamente redondo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem; /* Tamanho do emoji */
+  color: #4a5568;
+  border: 2px solid #cbd5e1;
+  margin: 0 auto; /* Centraliza no card se necessário */
 }

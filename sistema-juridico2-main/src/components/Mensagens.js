@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 
-
 const Mensagens = ({ conversas, setConversas }) => {
   const [conversaAtivaId, setConversaAtivaId] = useState(1);
   const [inputMensagem, setInputMensagem] = useState("");
 
+  // Busca de forma segura a conversa ativa ou seleciona a primeira da lista
   const conversaAtiva = conversas.find(c => c.id === conversaAtivaId) || conversas[0];
 
   const enviarMensagem = (e) => {
     e.preventDefault();
-    if (!inputMensagem.trim()) return;
+    if (!inputMensagem.trim() || !conversaAtiva) return;
 
     const novaMsgObj = {
       id: Date.now(),
@@ -40,16 +40,22 @@ const Mensagens = ({ conversas, setConversas }) => {
       {/* Sidebar de conversas */}
       <div className="chat-lista-clientes">
         <h2>Mensagens</h2>
-        {conversas.map(c => (
+        {conversas && conversas.map(c => (
           <div 
             key={c.id} 
             className={`chat-item-cliente ${c.id === conversaAtivaId ? "ativo" : ""} ${c.nova ? "nao-lida" : ""}`}
             onClick={() => {
+              // 💡 CORREÇÃO AQUI: Atualiza o ID ativo e muda o estado global sem mutar diretamente o objeto
               setConversaAtivaId(c.id);
-              c.nova = false; // Retira badge de não lido ao abrir
+              setConversas(prevConversas =>
+                prevConversas.map(item =>
+                  item.id === c.id ? { ...item, nova: false } : item
+                )
+              );
             }}
           >
-            <span className="avatar-cliente-chat">{c.avatar}</span>
+            {/* Se não houver avatar no JSON, usa o emoji de usuário padrão */}
+            <span className="avatar-cliente-chat">{c.avatar || "👤"}</span>
             <div className="info-resumo-chat">
               <h4>{c.cliente}</h4>
               <p>{c.ultimaMensagem}</p>
@@ -64,11 +70,11 @@ const Mensagens = ({ conversas, setConversas }) => {
         {conversaAtiva ? (
           <>
             <div className="chat-janela-header">
-              <h3>{conversaAtiva.avatar} {conversaAtiva.cliente}</h3>
+              <h3>{conversaAtiva.avatar || "👤"} {conversaAtiva.cliente}</h3>
             </div>
             
             <div className="chat-mensagens-corpo">
-              {conversaAtiva.historico.map(m => (
+              {conversaAtiva.historico && conversaAtiva.historico.map(m => (
                 <div key={m.id} className={`balao-mensagem ${m.envio}`}>
                   <p>{m.texto}</p>
                   <span className="balao-horario">{m.horario}</span>

@@ -28,12 +28,13 @@ const Navegacao = () => {
 {/* Substitua o item de Casos por este de Mensagens */}
         <li>
           <NavLink to="/mensagens">
-            <span className="menu-icone">💬</span> Mensagens
+            <span className="menu-icone">✉️</span> Mensagens
           </NavLink>
         </li>
         <li>
           <NavLink to="/processos">
             <span className="menu-icone">📂</span> Processos
+
           </NavLink>
         </li>
         <li>

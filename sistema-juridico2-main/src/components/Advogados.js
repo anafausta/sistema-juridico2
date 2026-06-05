@@ -67,19 +67,34 @@ const Advogados = ({ advogados }) => {
         </div>
       </div>
 
-      {/* Grid de Cards mapeando a lista local dinâmica */}
-      <div className="indicadores-container grid-advogados">
-        {listaAdvogados && listaAdvogados.length > 0 ? (
-          listaAdvogados.map((advogado) => (
-            <div className="card-advogado" key={advogado.id}>
-              
-              <div className="advogado-avatar-container">
-                <img 
-                  src={advogado.foto ? `/imagens/advogados/${advogado.foto}` : "/imagens/advogados/default.jpg"} 
-                  alt={advogado.nome} 
-                  className="advogado-foto-perfil"
-                />
-              </div>
+{/* Grid de Cards dos Advogados */}
+<div className="grid-advogados">
+  {listaAdvogados && listaAdvogados.length > 0 ? (
+    listaAdvogados.map((advogado) => (
+      <div className="card-advogado" key={advogado.id}>
+        
+        {/* 💡 Espaço da Foto Dinâmica / Ícone de Balança Tratado */}
+        <div className="advogado-avatar-container">
+          {advogado.foto === "👤" || !advogado.foto ? (
+            // Renderiza um bloco centralizado com o emoji da justiça se não houver foto
+            <div className="avatar-padrao-fallback">👤</div>
+          ) : (
+            // Caso tenha uma string de imagem (ex: "advogado1.jpg"), carrega normalmente
+            <img 
+              src={`/imagens/advogados/${advogado.foto}`} 
+              alt={advogado.nome} 
+              className="advogado-foto-perfil"
+              // Fallback automático caso o arquivo digitado dê erro 404
+              onError={(e) => {
+                e.target.style.display = "none";
+                const fallback = document.createElement("div");
+                fallback.className = "avatar-padrao-fallback";
+                fallback.innerText = "👤";
+                e.target.parentNode.appendChild(fallback);
+              }}
+            />
+          )}
+        </div>
 
               <div className="advogado-detalhes-corpo">
                 <h3>{advogado.nome}</h3>

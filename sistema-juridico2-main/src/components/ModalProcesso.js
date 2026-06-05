@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const ModalProcesso = ({ isOpen, onClose, onSave, processoAtual }) => {
+const ModalProcesso = ({ isOpen, onClose, onSave, processoAtual, listaClientes, listaAdvogados }) => {
   const [numero, setNumero] = useState("");
   const [cliente, setCliente] = useState("");
   const [advogado, setAdvogado] = useState("");
@@ -53,24 +53,38 @@ const ModalProcesso = ({ isOpen, onClose, onSave, processoAtual }) => {
             />
           </div>
 
+ {/* 💡 SELECT DE CLIENTES USANDO O SEU NOME DE PROP */}
           <div className="grupo-input">
             <label>Cliente</label>
-            <input 
-              type="text" 
-              required 
+            <select 
+              required
               value={cliente} 
-              onChange={(e) => setCliente(e.target.value)} 
-            />
+              onChange={(e) => setCliente(e.target.value)}
+            >
+              <option value="">-- Selecione o Cliente --</option>
+              {listaClientes && listaClientes.map((c) => (
+                <option key={c.id} value={c.nome}>
+                  {c.nome}
+                </option>
+              ))}
+            </select>
           </div>
 
+          {/* 💡 SELECT DE ADVOGADOS USANDO O SEU NOME DE PROP */}
           <div className="grupo-input">
             <label>Advogado Responsável</label>
-            <input 
-              type="text" 
-              required 
+            <select 
+              required
               value={advogado} 
-              onChange={(e) => setAdvogado(e.target.value)} 
-            />
+              onChange={(e) => setAdvogado(e.target.value)}
+            >
+              <option value="">-- Selecione o Advogado --</option>
+              {listaAdvogados && listaAdvogados.map((a) => (
+                <option key={a.id} value={a.nome}>
+                  {a.nome} (OAB: {a.oab})
+                </option>
+              ))}
+            </select>
           </div>
 
           <div className="grupo-input">

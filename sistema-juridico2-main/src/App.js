@@ -15,7 +15,7 @@ import Relatorio from "./components/Relatorio"; // <-- Adicione este import
 
 import axios from "axios";
 import "./index.css";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {Routes, Route } from "react-router-dom";
 
 const App = () => {
   // 1. Definição dos estados do sistema
@@ -136,10 +136,10 @@ const App = () => {
               {/* Rota da sua nova Central de Mensagens */}
               <Route path="/mensagens" element={<Mensagens conversas={conversas} setConversas={setConversas} />} />
               
-              {/* Redireciona qualquer rota desconhecida para a Home */}
-              <Route path="*" element={<Navigate to="/" />} />
+             <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
+          <Rodape />
         </div>
       </div>
   );
