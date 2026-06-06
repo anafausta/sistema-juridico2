@@ -33,7 +33,7 @@ const Login = ({ onLogin }) => {
               id="usuario"
               value={usuario}
               onChange={(e) => setUsuario(e.target.value)}
-              placeholder="Digite seu usuário"
+              placeholder="Digite seu usuário (admin)"
               required
             />
           </div>
