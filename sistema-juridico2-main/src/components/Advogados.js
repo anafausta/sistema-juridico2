@@ -73,13 +73,11 @@ const Advogados = ({ advogados }) => {
     listaAdvogados.map((advogado) => (
       <div className="card-advogado" key={advogado.id}>
         
-        {/* 💡 Espaço da Foto Dinâmica / Ícone de Balança Tratado */}
+        {}
         <div className="advogado-avatar-container">
           {advogado.foto === "👤" || !advogado.foto ? (
-            // Renderiza um bloco centralizado com o emoji da justiça se não houver foto
             <div className="avatar-padrao-fallback">👤</div>
           ) : (
-            // Caso tenha uma string de imagem (ex: "advogado1.jpg"), carrega normalmente
             <img 
               src={`/imagens/advogados/${advogado.foto}`} 
               alt={advogado.nome} 
@@ -110,7 +108,7 @@ const Advogados = ({ advogados }) => {
                 </p>
 
                 <div className="advogado-acoes-card">
-                  {/* Eventos onClick adicionados aos botões de ação do card */}
+                  {}
                   <button 
                     className="btn-acao-editar" 
                     title="Editar dados"

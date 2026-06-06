@@ -5,7 +5,7 @@ import logoImg from "../imagens/logo.png";
 const Navegacao = () => {
   return (
     <aside className="sidebar-sistema">
-      {/* Topo da Sidebar: Logo da Marca */}
+      {}
       <div className="sidebar-logo-container">
         <img 
           src={logoImg} 
@@ -25,7 +25,7 @@ const Navegacao = () => {
             <span className="menu-icone">🏠</span> Dashboard
           </NavLink>
         </li>
-{/* Substitua o item de Casos por este de Mensagens */}
+{}
         <li>
           <NavLink to="/mensagens">
             <span className="menu-icone">✉️</span> Mensagens
@@ -49,7 +49,7 @@ const Navegacao = () => {
         </li>
       </ul>
 
-      {/* Vetor/Marca d'água decorativa no final da sidebar (opcional) */}
+      {}
       <div className="sidebar-balanca-decorativa">
         ⚖️
       </div>

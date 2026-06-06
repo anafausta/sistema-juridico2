@@ -53,7 +53,7 @@ const ModalProcesso = ({ isOpen, onClose, onSave, processoAtual, listaClientes, 
             />
           </div>
 
- {/* 💡 SELECT DE CLIENTES USANDO O SEU NOME DE PROP */}
+ {}
           <div className="grupo-input">
             <label>Cliente</label>
             <select 
@@ -61,7 +61,7 @@ const ModalProcesso = ({ isOpen, onClose, onSave, processoAtual, listaClientes, 
               value={cliente} 
               onChange={(e) => setCliente(e.target.value)}
             >
-              <option value="">-- Selecione o Cliente --</option>
+              <option value="">Selecione o Cliente</option>
               {listaClientes && listaClientes.map((c) => (
                 <option key={c.id} value={c.nome}>
                   {c.nome}
@@ -70,7 +70,7 @@ const ModalProcesso = ({ isOpen, onClose, onSave, processoAtual, listaClientes, 
             </select>
           </div>
 
-          {/* 💡 SELECT DE ADVOGADOS USANDO O SEU NOME DE PROP */}
+          {}
           <div className="grupo-input">
             <label>Advogado Responsável</label>
             <select 
@@ -78,7 +78,7 @@ const ModalProcesso = ({ isOpen, onClose, onSave, processoAtual, listaClientes, 
               value={advogado} 
               onChange={(e) => setAdvogado(e.target.value)}
             >
-              <option value="">-- Selecione o Advogado --</option>
+              <option value="">Selecione o Advogado</option>
               {listaAdvogados && listaAdvogados.map((a) => (
                 <option key={a.id} value={a.nome}>
                   {a.nome} (OAB: {a.oab})

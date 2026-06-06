@@ -11,7 +11,7 @@ import NotFound from "./components/NotFound";
 import Navegacao from "./components/Navegacao";
 import Login from "./components/Login"; 
 import Mensagens from "./components/Mensagens"; 
-import Relatorio from "./components/Relatorio"; // <-- Adicione este import
+import Relatorio from "./components/Relatorio"; 
 
 import axios from "axios";
 import "./index.css";
@@ -22,8 +22,8 @@ const App = () => {
   const [clientes, setClientes] = useState([]);
   const [advogados, setAdvogados] = useState([]);
   const [processos, setProcessos] = useState([]);
-  const [conversas, setConversas] = useState([]); // Estado para o chat
-  const [notificacoes, setNotificacoes] = useState([]); // Estado global de notificações
+  const [conversas, setConversas] = useState([]); 
+  const [notificacoes, setNotificacoes] = useState([]);
   
   // Estado para controlar se o usuário está logado
   const [autenticado, setAutenticado] = useState(false);
@@ -122,7 +122,7 @@ const App = () => {
 
         {/* Bloco de Conteúdo à Direita (Header + Páginas Dinâmicas) */}
         <div className="layout-conteudo-principal">
-          {/* Topo sincronizado recebendo as notificações e seu modificador de estado */}
+          {}
           <Topo notificacoes={notificacoes} setNotificacoes={setNotificacoes} />
           
           <div className="conteudo-dinamico-paginas">
@@ -133,7 +133,7 @@ const App = () => {
               <Route path="/advogados" element={<Advogados advogados={advogados} />} />
               
               <Route path="/relatorios" element={<Relatorio processos={processos} />} />
-              {/* Rota da sua nova Central de Mensagens */}
+              
               <Route path="/mensagens" element={<Mensagens conversas={conversas} setConversas={setConversas} />} />
               
              <Route path="*" element={<NotFound />} />

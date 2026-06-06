@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ModalProcesso from "./ModalProcesso"; // Importamos o modal que criamos
-import Relatorio from "./Relatorio"; // <-- 1. IMPORTA O COMPONENTE AQUI
+import ModalProcesso from "./ModalProcesso"; 
+import Relatorio from "./Relatorio"; 
 
 const Home = ({ processos, clientes, advogados, casos }) => {
   const [listaProcessos, setListaProcessos] = useState([]);
@@ -12,7 +12,7 @@ const Home = ({ processos, clientes, advogados, casos }) => {
     }
   }, [processos]);
 
-  // --- FUNÇÕES DE MANIPULAÇÃO ---
+  //FUNÇÕES DE MANIPULAÇÃO
 
   const abrirModalNovo = () => {
     setProcessoEditando(null);
@@ -69,6 +69,8 @@ const Home = ({ processos, clientes, advogados, casos }) => {
         onClose={() => setIsModalOpen(false)} 
         onSave={handleSalvarProcesso}
         processoAtual={processoEditando}
+        listaClientes={clientes} 
+        listaAdvogados={advogados}
       />
       <Relatorio processos={listaProcessos} />
       

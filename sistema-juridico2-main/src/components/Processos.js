@@ -60,7 +60,7 @@ const Processos = ({ processos, clientes, advogados, casos }) => {
   return (
     <main className="principal-dashboard">
       
-      {/* AJUSTE AQUI: repassando as listas para alimentar os selects do modal */}
+      {}
       <ModalProcesso 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
