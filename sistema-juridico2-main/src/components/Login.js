@@ -45,7 +45,7 @@ const Login = ({ onLogin }) => {
               id="senha"
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
-              placeholder="Digite sua senha"
+              placeholder="Digite sua senha (admin123)"
               required
             />
           </div>
