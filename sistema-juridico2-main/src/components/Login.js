@@ -13,8 +13,7 @@ const Login = ({ onLogin }) => {
   // Validação estrita
   if (usuario === "admin" && senha === "admin123") {
     setErro("");
-    onLogin(); // <-- ADICIONE ESTA LINHA AQUI! Ela avisa o App.js que o login deu certo.
-  } else {
+    onLogin(); 
     setErro("Usuário ou senha incorretos. Tente novamente.");
   }
 };
