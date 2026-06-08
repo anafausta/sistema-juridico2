@@ -114,13 +114,13 @@ const App = () => {
     return <Login onLogin={() => setAutenticado(true)} />;
   }
 
-  // Se estiver autenticado, carrega todo o ecossistema do Dashboard
+  // Se estiver autenticado, carrega todo o Dashboard
   return (
       <div className="layout-aplicacao">
         {/* Menu Lateral Fixo à Esquerda */}
         <Navegacao />
 
-        {/* Bloco de Conteúdo à Direita (Header + Páginas Dinâmicas) */}
+        {}
         <div className="layout-conteudo-principal">
           {}
           <Topo notificacoes={notificacoes} setNotificacoes={setNotificacoes} />
